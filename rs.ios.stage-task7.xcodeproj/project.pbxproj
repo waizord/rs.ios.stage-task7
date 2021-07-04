@@ -8,27 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		2C2E5F5E2691276A000ED89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E5F5D2691276A000ED89B /* AppDelegate.m */; };
-		2C2E5F612691276A000ED89B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E5F602691276A000ED89B /* SceneDelegate.m */; };
-		2C2E5F642691276A000ED89B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E5F632691276A000ED89B /* ViewController.m */; };
-		2C2E5F672691276A000ED89B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2E5F652691276A000ED89B /* Main.storyboard */; };
 		2C2E5F692691276D000ED89B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2E5F682691276D000ED89B /* Assets.xcassets */; };
 		2C2E5F6C2691276D000ED89B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2E5F6A2691276D000ED89B /* LaunchScreen.storyboard */; };
 		2C2E5F6F2691276D000ED89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E5F6E2691276D000ED89B /* main.m */; };
+		2C48AA582691385700FE22B5 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48AA562691385700FE22B5 /* AuthViewController.m */; };
+		2C48AA592691385700FE22B5 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C48AA572691385700FE22B5 /* AuthViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C2E5F592691276A000ED89B /* rs.ios.stage-task7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios.stage-task7.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2E5F5C2691276A000ED89B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C2E5F5D2691276A000ED89B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2C2E5F5F2691276A000ED89B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		2C2E5F602691276A000ED89B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		2C2E5F622691276A000ED89B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C2E5F632691276A000ED89B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2C2E5F662691276A000ED89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C2E5F682691276D000ED89B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C2E5F6B2691276D000ED89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C2E5F6D2691276D000ED89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C2E5F6E2691276D000ED89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C48AA552691385700FE22B5 /* AuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
+		2C48AA562691385700FE22B5 /* AuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
+		2C48AA572691385700FE22B5 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +60,9 @@
 			children = (
 				2C2E5F5C2691276A000ED89B /* AppDelegate.h */,
 				2C2E5F5D2691276A000ED89B /* AppDelegate.m */,
-				2C2E5F5F2691276A000ED89B /* SceneDelegate.h */,
-				2C2E5F602691276A000ED89B /* SceneDelegate.m */,
-				2C2E5F622691276A000ED89B /* ViewController.h */,
-				2C2E5F632691276A000ED89B /* ViewController.m */,
-				2C2E5F652691276A000ED89B /* Main.storyboard */,
+				2C48AA552691385700FE22B5 /* AuthViewController.h */,
+				2C48AA562691385700FE22B5 /* AuthViewController.m */,
+				2C48AA572691385700FE22B5 /* AuthViewController.xib */,
 				2C2E5F682691276D000ED89B /* Assets.xcassets */,
 				2C2E5F6A2691276D000ED89B /* LaunchScreen.storyboard */,
 				2C2E5F6D2691276D000ED89B /* Info.plist */,
@@ -133,8 +128,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2E5F6C2691276D000ED89B /* LaunchScreen.storyboard in Resources */,
+				2C48AA592691385700FE22B5 /* AuthViewController.xib in Resources */,
 				2C2E5F692691276D000ED89B /* Assets.xcassets in Resources */,
-				2C2E5F672691276A000ED89B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,24 +140,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C2E5F642691276A000ED89B /* ViewController.m in Sources */,
 				2C2E5F5E2691276A000ED89B /* AppDelegate.m in Sources */,
+				2C48AA582691385700FE22B5 /* AuthViewController.m in Sources */,
 				2C2E5F6F2691276D000ED89B /* main.m in Sources */,
-				2C2E5F612691276A000ED89B /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2C2E5F652691276A000ED89B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C2E5F662691276A000ED89B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C2E5F6A2691276D000ED89B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
