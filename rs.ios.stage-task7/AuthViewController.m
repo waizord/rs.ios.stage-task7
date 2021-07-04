@@ -27,6 +27,8 @@
 
 @property (readonly, nonatomic) NSString *constLoginText;
 @property (readonly, nonatomic) NSString *constPassText;
+
+@property (nonatomic) NSMutableString *check;
 @end
 
 @implementation AuthViewController
@@ -229,30 +231,34 @@ return YES;
 -(void) buttonSecureHighlight: (UIButton *)sender {
     UIColor *littleBoyBlue = [UIColor colorFromHex:0x80a4ed];
     [sender setBackgroundColor:[littleBoyBlue colorWithAlphaComponent:0.2]];
-    NSMutableString *check = [NSMutableString new];
     NSLog(@"%ld", sender.tag);
-    if (check.length < 4) {
+    if (self.check.length < 4) {
         switch (sender.tag) {
             case 1:
-                NSLog(@"%ld", sender.tag);
-                [check appendString:@"1"];
-                self.secureLabel.text = check;
+                [self.check appendString:@"1"];
+                NSLog(@"%@", self.check);
+                //self.secureLabel.text = check;
                 break;
             case 2:
-                [check appendString:@"2"];
-                self.secureLabel.text = check;
+                [self.check appendString:@"2"];
+                NSLog(@"%@", self.check);
+                //self.secureLabel.text = check;
                 break;
             case 3:
-                [check appendString:@"3"];
-                self.secureLabel.text = check;
+                [self.check appendString:@"3"];
+                NSLog(@"%@", self.check);
+                //self.secureLabel.text = check;
                 break;
             default:
                 break;
         }
     }else{
-        check = nil;
+        self.check = nil;
         self.secureLabel.text = @"-";
+        NSLog(@"Else: %@", self.check);
     }
+    self.secureLabel.text = self.check;
+    NSLog(@"Finish:%@", self.check);
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
     UIColor *white = [UIColor whiteColor];
