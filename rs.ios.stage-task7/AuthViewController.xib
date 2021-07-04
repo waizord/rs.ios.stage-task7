@@ -16,7 +16,7 @@
                 <outlet property="loginTextField" destination="HdT-pz-0HW" id="tRv-yP-2Xa"/>
                 <outlet property="oneButton" destination="vcL-uK-EBL" id="T1s-Ov-e4d"/>
                 <outlet property="passTextField" destination="DrZ-bi-sge" id="TpF-E2-vdU"/>
-                <outlet property="secureLabel" destination="4gV-H9-UhU" id="2fe-sh-Gbo"/>
+                <outlet property="secureLabel" destination="4gV-H9-UhU" id="aUu-95-GBq"/>
                 <outlet property="secureView" destination="uNc-Fz-NO9" id="k0d-G8-QXg"/>
                 <outlet property="threeButton" destination="qrn-UD-uQz" id="maf-de-yVE"/>
                 <outlet property="twoButton" destination="NHf-OS-pg9" id="iqn-9m-oUq"/>

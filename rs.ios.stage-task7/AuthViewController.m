@@ -138,6 +138,7 @@ return YES;
     self.oneButton.layer.borderColor = littleBoyBlue.CGColor;
     self.oneButton.layer.borderWidth = 1.5;
     self.oneButton.layer.cornerRadius = 25;
+    self.oneButton.tag = 1;
     //defaults style
     [self.oneButton setTitleColor:littleBoyBlue forState:UIControlStateNormal];
     [self.oneButton addTarget:self action:@selector(buttonSecureUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -147,6 +148,7 @@ return YES;
     self.twoButton.layer.borderColor = littleBoyBlue.CGColor;
     self.twoButton.layer.borderWidth = 1.5;
     self.twoButton.layer.cornerRadius = 25;
+    self.twoButton.tag = 2;
     //defaults style
     [self.twoButton setTitleColor:littleBoyBlue forState:UIControlStateNormal];
     [self.twoButton addTarget:self action:@selector(buttonSecureUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -156,6 +158,7 @@ return YES;
     self.threeButton.layer.borderColor = littleBoyBlue.CGColor;
     self.threeButton.layer.borderWidth = 1.5;
     self.threeButton.layer.cornerRadius = 25;
+    self.threeButton.tag = 3;
     //defaults style
     [self.threeButton setTitleColor:littleBoyBlue forState:UIControlStateNormal];
     [self.threeButton addTarget:self action:@selector(buttonSecureUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -194,8 +197,7 @@ return YES;
         
         [self disableLogin];
         [self enableSecure];
-//        self.checkLoginText = nil;
-//        self.checkPassText = nil;
+        
     }else {
         if ([self.checkLoginText isEqual:self.constLoginText]) {
             [self changeLoginStyle:turquoiseGreen];
@@ -227,7 +229,30 @@ return YES;
 -(void) buttonSecureHighlight: (UIButton *)sender {
     UIColor *littleBoyBlue = [UIColor colorFromHex:0x80a4ed];
     [sender setBackgroundColor:[littleBoyBlue colorWithAlphaComponent:0.2]];
-    NSLog(@"Bad");
+    NSMutableString *check = [NSMutableString new];
+    NSLog(@"%ld", sender.tag);
+    if (check.length < 4) {
+        switch (sender.tag) {
+            case 1:
+                NSLog(@"%ld", sender.tag);
+                [check appendString:@"1"];
+                self.secureLabel.text = check;
+                break;
+            case 2:
+                [check appendString:@"2"];
+                self.secureLabel.text = check;
+                break;
+            case 3:
+                [check appendString:@"3"];
+                self.secureLabel.text = check;
+                break;
+            default:
+                break;
+        }
+    }else{
+        check = nil;
+        self.secureLabel.text = @"-";
+    }
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
     UIColor *white = [UIColor whiteColor];
