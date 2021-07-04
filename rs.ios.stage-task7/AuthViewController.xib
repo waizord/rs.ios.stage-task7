@@ -99,7 +99,7 @@
                         <constraint firstAttribute="height" constant="42" id="PD2-fZ-LcM"/>
                         <constraint firstAttribute="width" constant="156" id="W4r-sU-yPp"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <state key="normal">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                     </state>
@@ -133,7 +133,7 @@
                 <constraint firstItem="uNc-Fz-NO9" firstAttribute="top" secondItem="cZ3-c6-TK7" secondAttribute="bottom" constant="67" id="uFD-Wj-JHu"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HdT-pz-0HW" secondAttribute="trailing" constant="36" id="vTk-B1-878"/>
             </constraints>
-            <point key="canvasLocation" x="-155.07246376811597" y="58.928571428571423"/>
+            <point key="canvasLocation" x="-155.625" y="58.098591549295776"/>
         </view>
     </objects>
     <resources>

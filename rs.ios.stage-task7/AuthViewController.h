@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AuthViewController : UIViewController
+@interface AuthViewController : UIViewController <UITextFieldDelegate>
 
 @end
 
