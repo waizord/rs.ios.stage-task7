@@ -13,6 +13,7 @@
 		2C2E5F6F2691276D000ED89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E5F6E2691276D000ED89B /* main.m */; };
 		2C48AA582691385700FE22B5 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48AA562691385700FE22B5 /* AuthViewController.m */; };
 		2C48AA592691385700FE22B5 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C48AA572691385700FE22B5 /* AuthViewController.xib */; };
+		2C48AA6C26917A2A00FE22B5 /* UIColor+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C48AA6B26917A2A00FE22B5 /* UIColor+Color.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		2C48AA552691385700FE22B5 /* AuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
 		2C48AA562691385700FE22B5 /* AuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		2C48AA572691385700FE22B5 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
+		2C48AA6A26917A2A00FE22B5 /* UIColor+Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Color.h"; sourceTree = "<group>"; };
+		2C48AA6B26917A2A00FE22B5 /* UIColor+Color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Color.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				2C2E5F6A2691276D000ED89B /* LaunchScreen.storyboard */,
 				2C2E5F6D2691276D000ED89B /* Info.plist */,
 				2C2E5F6E2691276D000ED89B /* main.m */,
+				2C48AA6A26917A2A00FE22B5 /* UIColor+Color.h */,
+				2C48AA6B26917A2A00FE22B5 /* UIColor+Color.m */,
 			);
 			path = "rs.ios.stage-task7";
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				TargetAttributes = {
 					2C2E5F582691276A000ED89B = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2E5F5E2691276A000ED89B /* AppDelegate.m in Sources */,
+				2C48AA6C26917A2A00FE22B5 /* UIColor+Color.m in Sources */,
 				2C48AA582691385700FE22B5 /* AuthViewController.m in Sources */,
 				2C2E5F6F2691276D000ED89B /* main.m in Sources */,
 			);
@@ -277,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M9V2HJR8B4;
 				INFOPLIST_FILE = "rs.ios.stage-task7/Info.plist";
@@ -286,6 +294,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan.rs-ios-stage-task7";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task7/rs.ios.stage-task7-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -295,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M9V2HJR8B4;
 				INFOPLIST_FILE = "rs.ios.stage-task7/Info.plist";
@@ -304,6 +316,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Ivan.rs-ios-stage-task7";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rs.ios.stage-task7/rs.ios.stage-task7-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
