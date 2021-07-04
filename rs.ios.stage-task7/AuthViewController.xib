@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,22 +11,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController">
             <connections>
+                <outlet property="RSLabel" destination="ZCd-Bs-gqi" id="BKe-SU-0dh"/>
+                <outlet property="autorizeButton" destination="cZ3-c6-TK7" id="sg7-1g-hKZ"/>
+                <outlet property="loginTextField" destination="HdT-pz-0HW" id="tRv-yP-2Xa"/>
+                <outlet property="oneButton" destination="vcL-uK-EBL" id="T1s-Ov-e4d"/>
+                <outlet property="passTextField" destination="DrZ-bi-sge" id="TpF-E2-vdU"/>
+                <outlet property="secureLabel" destination="4gV-H9-UhU" id="2fe-sh-Gbo"/>
+                <outlet property="secureView" destination="uNc-Fz-NO9" id="k0d-G8-QXg"/>
+                <outlet property="threeButton" destination="qrn-UD-uQz" id="maf-de-yVE"/>
+                <outlet property="twoButton" destination="NHf-OS-pg9" id="iqn-9m-oUq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSchool" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-Bs-gqi">
-                    <rect key="frame" x="126" y="124" width="162.5" height="43"/>
+                    <rect key="frame" x="79" y="80" width="162.5" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNc-Fz-NO9">
-                    <rect key="frame" x="89" y="702" width="236" height="110"/>
+                    <rect key="frame" x="42" y="408" width="236" height="110"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcL-uK-EBL">
                             <rect key="frame" x="23" y="45" width="50" height="50"/>
@@ -85,7 +94,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZ3-c6-TK7">
-                    <rect key="frame" x="129" y="593" width="156" height="42"/>
+                    <rect key="frame" x="82" y="299" width="156" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="PD2-fZ-LcM"/>
                         <constraint firstAttribute="width" constant="156" id="W4r-sU-yPp"/>
@@ -95,17 +104,17 @@
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                     </state>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DrZ-bi-sge">
-                    <rect key="frame" x="36" y="499" width="342" height="34"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HdT-pz-0HW" userLabel="login">
+                    <rect key="frame" x="36" y="141" width="248" height="34"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HdT-pz-0HW">
-                    <rect key="frame" x="36" y="435" width="342" height="34"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DrZ-bi-sge" userLabel="password">
+                    <rect key="frame" x="36" y="205" width="248" height="34"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
