@@ -226,13 +226,15 @@ return YES;
     UIColor *littleBoyBlue = [UIColor colorFromHex:0x80a4ed];
     [sender setBackgroundColor:[littleBoyBlue colorWithAlphaComponent:0.2]];
     
+    self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
+    
     NSMutableString * newLabel = [NSMutableString stringWithString:self.secureLabel.text];
     if ([newLabel containsString:@"-"]) {
         newLabel = [NSMutableString stringWithString:@""];
     }
     
     NSLog(@"%ld", sender.tag);
-    //if (self.secureLabel.text.length < 3) {
+    if (self.secureLabel.text.length < 3) {
         switch (sender.tag) {
             case 1:
                 [newLabel appendString:@"1"];
@@ -254,28 +256,42 @@ return YES;
                 NSLog(@"Error SecureLabel");
                 break;
         }
-   // }else{
-//        self.secureLabel.text = @"-";
-//        NSLog(@"Else: %@", newLabel);
-    //}
-    
-    NSLog(@"Finish:%@", newLabel);
+    }else{
+        self.secureLabel.text = @"-";
+    }
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
     UIColor *white = [UIColor whiteColor];
     [sender setBackgroundColor:white];
-    
-    if([self.secureLabel.text isEqualToString:self.constSecureText]) {
+    UIColor *turquoiseGreen = [UIColor colorFromHex:0x91c7b1];
+    UIColor *vanetianRed = [UIColor colorFromHex:0xc20114];
+
+    if ([self.secureLabel.text isEqualToString:self.constSecureText]) {
         NSLog(@"SUCSEC");
-    }
-    
-    if (self.secureLabel.text.length < 3) {
-    }else{
-        self.secureLabel.text = @"-";
-        //NSLog(@"Else: %@", newLabel);
+        
+        self.secureView.layer.borderColor = turquoiseGreen.CGColor;
+        [self showAlert];
+    }else {
+        if (self.secureLabel.text.length == 3) {
+            self.secureLabel.text = @"-";
+            self.secureView.layer.borderColor = vanetianRed.CGColor;
+        }
     }
     
     NSLog(@"Tap");
 }
+//MARK: - Alert
+-(void) showAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome"
+                message:@"You are successfuly autorized!"
+                preferredStyle:UIAlertControllerStyleAlert]; // 1
+        UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Refresh"
+                style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+                    NSLog(@"You pressed button one");
+                }]; // 2
 
+        [alert addAction:firstAction]; // 4
+
+        [self presentViewController:alert animated:YES completion:nil]; // 6
+}
 @end
