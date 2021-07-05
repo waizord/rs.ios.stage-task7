@@ -33,10 +33,10 @@
 @implementation AuthViewController
 
 - (NSString *)constLoginText {
-    return @"u";
+    return @"username";
 }
 - (NSString *)constPassText {
-    return @"p";
+    return @"password";
 }
 - (NSString *)constSecureText {
     return @"132";
@@ -102,12 +102,15 @@ return YES;
     self.loginTextField.layer.borderWidth = 1.5;
     self.loginTextField.layer.cornerRadius = 5;
     self.loginTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.loginTextField.text = nil;
     [self.loginTextField setAlpha:1];
+    
     
     self.passTextField.layer.borderColor = blackCoral.CGColor;
     self.passTextField.layer.borderWidth = 1.5;
     self.passTextField.layer.cornerRadius = 5;
     self.passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passTextField.text = nil;
     [self.passTextField setAlpha:1];
     
     self.autorizeButton.layer.borderColor = littleBoyBlue.CGColor;
