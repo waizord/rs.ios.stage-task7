@@ -43,6 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self keyboardSetting];
+    
     [self beginingStyles];
     
     self.loginTextField.delegate = self;
@@ -322,5 +324,16 @@ return YES;
         [alert addAction:firstAction];
 
         [self presentViewController:alert animated:YES completion:nil];
+}
+//MARK: - Seeting keyboard
+-(void) keyboardSetting {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+
+    [self.view addGestureRecognizer:tap];
+}
+-(void)dismissKeyboard
+{
+    [self.loginTextField resignFirstResponder];
+    [self.passTextField resignFirstResponder];
 }
 @end
