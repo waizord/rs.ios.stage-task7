@@ -22,28 +22,31 @@
 @property (nonatomic) NSString *checkLoginText;
 @property (nonatomic) NSString *checkPassText;
 
-@property (nonatomic) bool isLoginText;
-@property (nonatomic) bool isPassText;
+//@property (nonatomic) bool isLoginText;
+//@property (nonatomic) bool isPassText;
 
 @property (readonly, nonatomic) NSString *constLoginText;
 @property (readonly, nonatomic) NSString *constPassText;
-
-@property (nonatomic) NSMutableString *check;
+@property (readonly, nonatomic) NSString *constSecureText;
 @end
 
 @implementation AuthViewController
+
 - (NSString *)constLoginText {
     return @"u";
 }
 - (NSString *)constPassText {
     return @"p";
 }
-- (BOOL)isLoginText {
-    return NO;
+- (NSString *)constSecureText {
+    return @"132";
 }
-- (BOOL)isPassText {
-    return NO;
-}
+//- (BOOL)isLoginText {
+//    return NO;
+//}
+//- (BOOL)isPassText {
+//    return NO;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,15 +59,6 @@
 //MARK: - TextField Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSLog(@"login: %@, pass: %@", self.checkLoginText, self.checkPassText);
-    
-//    if ([self.checkLoginText isEqual:self.constLoginText]) {
-//        NSLog(@"login: %@", self.checkLoginText);
-//    }
-//    if ([self.checkPassText isEqual:self.constPassText]) {
-//        NSLog(@"login: %@", self.checkPassText);
-//    }
-//    self.checkLoginText = nil;
-//    self.checkPassText = nil;
     
 [textField resignFirstResponder];
     
@@ -135,7 +129,7 @@ return YES;
     self.secureView.layer.borderColor = turquoiseGreen.CGColor;
     self.secureView.layer.borderWidth = 2;
     self.secureView.layer.cornerRadius = 10;
-    [self.secureView setHidden:true];
+    //[self.secureView setHidden:true];
     
     self.oneButton.layer.borderColor = littleBoyBlue.CGColor;
     self.oneButton.layer.borderWidth = 1.5;
@@ -197,8 +191,8 @@ return YES;
     [self changeLoginStyle:turquoiseGreen];
     [self changePassStyle:turquoiseGreen];
         
-        [self disableLogin];
-        [self enableSecure];
+        //[self disableLogin];
+        //[self enableSecure];
         
     }else {
         if ([self.checkLoginText isEqual:self.constLoginText]) {
@@ -231,39 +225,57 @@ return YES;
 -(void) buttonSecureHighlight: (UIButton *)sender {
     UIColor *littleBoyBlue = [UIColor colorFromHex:0x80a4ed];
     [sender setBackgroundColor:[littleBoyBlue colorWithAlphaComponent:0.2]];
+    
+    NSMutableString * newLabel = [NSMutableString stringWithString:self.secureLabel.text];
+    if ([newLabel containsString:@"-"]) {
+        newLabel = [NSMutableString stringWithString:@""];
+    }
+    
     NSLog(@"%ld", sender.tag);
-    if (self.check.length < 4) {
+    //if (self.secureLabel.text.length < 3) {
         switch (sender.tag) {
             case 1:
-                [self.check appendString:@"1"];
-                NSLog(@"%@", self.check);
-                //self.secureLabel.text = check;
+                [newLabel appendString:@"1"];
+                NSLog(@"%lu", sender.tag);
+                NSLog(@"%@", newLabel);
+                self.secureLabel.text = newLabel;
                 break;
             case 2:
-                [self.check appendString:@"2"];
-                NSLog(@"%@", self.check);
-                //self.secureLabel.text = check;
+                [newLabel appendString:@"2"];
+                NSLog(@"%lu", sender.tag);
+                self.secureLabel.text = newLabel;
                 break;
             case 3:
-                [self.check appendString:@"3"];
-                NSLog(@"%@", self.check);
-                //self.secureLabel.text = check;
+                [newLabel appendString:@"3"];
+                NSLog(@"%lu", sender.tag);
+                self.secureLabel.text = newLabel;
                 break;
             default:
+                NSLog(@"Error SecureLabel");
                 break;
         }
-    }else{
-        self.check = nil;
-        self.secureLabel.text = @"-";
-        NSLog(@"Else: %@", self.check);
-    }
-    self.secureLabel.text = self.check;
-    NSLog(@"Finish:%@", self.check);
+   // }else{
+//        self.secureLabel.text = @"-";
+//        NSLog(@"Else: %@", newLabel);
+    //}
+    
+    NSLog(@"Finish:%@", newLabel);
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
     UIColor *white = [UIColor whiteColor];
     [sender setBackgroundColor:white];
-    NSLog(@"Bad");
+    
+    if([self.secureLabel.text isEqualToString:self.constSecureText]) {
+        NSLog(@"SUCSEC");
+    }
+    
+    if (self.secureLabel.text.length < 3) {
+    }else{
+        self.secureLabel.text = @"-";
+        //NSLog(@"Else: %@", newLabel);
+    }
+    
+    NSLog(@"Tap");
 }
 
 @end
