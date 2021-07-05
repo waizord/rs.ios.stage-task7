@@ -90,6 +90,24 @@ return YES;
     
     return YES;
 }
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    UITextField *refToTextFieldLoginCheck = self.loginTextField;
+    UITextField *refToTextFieldPassCheck = self.passTextField;
+    
+    if (textField == refToTextFieldLoginCheck) {
+        NSLog(@"Begin change Login");
+        if (![textField.text isEqualToString:self.constLoginText]) {
+            textField.text = nil;
+        }
+    }
+    if (textField == refToTextFieldPassCheck) {
+        NSLog(@"Begin change pass");
+        if (![textField.text isEqualToString:self.constPassText]) {
+            textField.text = nil;
+        }
+    }
+    return YES;
+}
 
 //MARK: - Styles
 -(void) beginingStyles {
@@ -131,7 +149,7 @@ return YES;
     [self.autorizeButton addTarget:self action:@selector(buttonHighlightAuth) forControlEvents:UIControlEventTouchDown];
     //disabled
     
-    //MARK: - Secure
+    //MARK: - Secure styles
     self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
     self.secureView.layer.borderWidth = 2;
     self.secureView.layer.cornerRadius = 10;
