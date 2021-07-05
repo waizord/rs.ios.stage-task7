@@ -325,7 +325,7 @@
 //MARK: - Alert
 -(void) showAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome"
-                                                                   message:@"You are successfuly autorized!"
+                                                                   message:@"You are successfuly authorized!"
                                                             preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Refresh"
                                                           style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
