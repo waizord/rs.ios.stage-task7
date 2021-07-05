@@ -60,9 +60,9 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gV-H9-UhU">
-                            <rect key="frame" x="0.0" y="15" width="236" height="15"/>
+                            <rect key="frame" x="0.0" y="15" width="236" height="21.5"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -81,7 +81,6 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="qrn-UD-uQz" secondAttribute="bottom" constant="15" id="CN0-dY-Wc3"/>
                         <constraint firstItem="NHf-OS-pg9" firstAttribute="leading" secondItem="vcL-uK-EBL" secondAttribute="trailing" constant="20" id="FGE-Am-hEB"/>
-                        <constraint firstItem="NHf-OS-pg9" firstAttribute="top" secondItem="4gV-H9-UhU" secondAttribute="bottom" constant="15" id="KZ0-k8-Whl"/>
                         <constraint firstAttribute="bottom" secondItem="vcL-uK-EBL" secondAttribute="bottom" constant="15" id="Usn-JK-y5X"/>
                         <constraint firstItem="4gV-H9-UhU" firstAttribute="top" secondItem="uNc-Fz-NO9" secondAttribute="top" constant="15" id="Yea-hS-D9a"/>
                         <constraint firstAttribute="trailing" secondItem="4gV-H9-UhU" secondAttribute="trailing" id="dmE-kI-dY2"/>
