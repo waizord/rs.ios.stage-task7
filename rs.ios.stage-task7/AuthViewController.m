@@ -19,28 +19,25 @@
 @property (weak, nonatomic) IBOutlet UIButton *oneButton;
 @property (weak, nonatomic) IBOutlet UIButton *twoButton;
 @property (weak, nonatomic) IBOutlet UIButton *threeButton;
+
 @property (nonatomic) NSString *checkLoginText;
 @property (nonatomic) NSString *checkPassText;
 
-@property (nonatomic) bool isLoginText;
-@property (nonatomic) bool isPassText;
-
 @property (readonly, nonatomic) NSString *constLoginText;
 @property (readonly, nonatomic) NSString *constPassText;
+@property (readonly, nonatomic) NSString *constSecureText;
 @end
 
 @implementation AuthViewController
+
 - (NSString *)constLoginText {
-    return @"u";
+    return @"username";
 }
 - (NSString *)constPassText {
-    return @"p";
+    return @"password";
 }
-- (BOOL)isLoginText {
-    return NO;
-}
-- (BOOL)isPassText {
-    return NO;
+- (NSString *)constSecureText {
+    return @"132";
 }
 
 - (void)viewDidLoad {
@@ -54,15 +51,6 @@
 //MARK: - TextField Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSLog(@"login: %@, pass: %@", self.checkLoginText, self.checkPassText);
-    
-//    if ([self.checkLoginText isEqual:self.constLoginText]) {
-//        NSLog(@"login: %@", self.checkLoginText);
-//    }
-//    if ([self.checkPassText isEqual:self.constPassText]) {
-//        NSLog(@"login: %@", self.checkPassText);
-//    }
-//    self.checkLoginText = nil;
-//    self.checkPassText = nil;
     
 [textField resignFirstResponder];
     
@@ -82,6 +70,8 @@ return YES;
         if ( [self.constLoginText isEqualToString:text] ) {
             self.checkLoginText = text;
             NSLog(@"Sucsess");
+        }else {
+            self.checkLoginText = nil;
         }
     }
     
@@ -89,9 +79,29 @@ return YES;
         if ( [self.constPassText isEqualToString:text] ) {
             self.checkPassText = text;
             NSLog(@"Sucsess");
+        }else {
+            self.checkPassText = nil;
         }
     }
     
+    return YES;
+}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    UITextField *refToTextFieldLoginCheck = self.loginTextField;
+    UITextField *refToTextFieldPassCheck = self.passTextField;
+    
+    if (textField == refToTextFieldLoginCheck) {
+        NSLog(@"Begin change Login");
+        if (![textField.text isEqualToString:self.constLoginText]) {
+            textField.text = nil;
+        }
+    }
+    if (textField == refToTextFieldPassCheck) {
+        NSLog(@"Begin change pass");
+        if (![textField.text isEqualToString:self.constPassText]) {
+            textField.text = nil;
+        }
+    }
     return YES;
 }
 
@@ -106,17 +116,23 @@ return YES;
     self.loginTextField.layer.borderWidth = 1.5;
     self.loginTextField.layer.cornerRadius = 5;
     self.loginTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.loginTextField.text = nil;
+    [self.loginTextField setAlpha:1];
+    
     
     self.passTextField.layer.borderColor = blackCoral.CGColor;
     self.passTextField.layer.borderWidth = 1.5;
     self.passTextField.layer.cornerRadius = 5;
     self.passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passTextField.text = nil;
+    [self.passTextField setAlpha:1];
     
     self.autorizeButton.layer.borderColor = littleBoyBlue.CGColor;
     self.autorizeButton.layer.borderWidth = 2;
     self.autorizeButton.layer.cornerRadius = 10;
     [self.autorizeButton setTitle:@"Autorize" forState: UIControlStateNormal];
     self.autorizeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
+    [self.autorizeButton setAlpha:1];
     //defaults style
     UIImage *person2 = [[UIImage alloc] imageWithImage:[UIImage imageNamed:@"person2"] convertToSize:CGSizeMake(17, 17)];
     [self.autorizeButton setImage:person2 forState:UIControlStateNormal];
@@ -127,10 +143,9 @@ return YES;
     UIImage *person = [[UIImage alloc] imageWithImage:[UIImage imageNamed:@"person"] convertToSize:CGSizeMake(17, 17)];
     [self.autorizeButton setImage:person forState:UIControlStateHighlighted];
     [self.autorizeButton addTarget:self action:@selector(buttonHighlightAuth) forControlEvents:UIControlEventTouchDown];
-    //disabled
     
-    //MARK: - Secure
-    self.secureView.layer.borderColor = turquoiseGreen.CGColor;
+    //MARK: - Secure styles
+    self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
     self.secureView.layer.borderWidth = 2;
     self.secureView.layer.cornerRadius = 10;
     [self.secureView setHidden:true];
@@ -173,7 +188,13 @@ return YES;
 -(void) changePassStyle: (UIColor *) color {
     self.passTextField.layer.borderColor = color.CGColor;
 }
-
+-(void) enableLogin {
+    [self.loginTextField setEnabled:true];
+    [self.autorizeButton setEnabled:true];
+    [self.passTextField setEnabled:true];
+//    self.loginTextField.clearsContextBeforeDrawing = true;
+//    self.passTextField.clearsContextBeforeDrawing = true;
+}
 -(void) disableLogin {
     [self.loginTextField setEnabled:false];
     [self.autorizeButton setEnabled:false];
@@ -229,35 +250,77 @@ return YES;
 -(void) buttonSecureHighlight: (UIButton *)sender {
     UIColor *littleBoyBlue = [UIColor colorFromHex:0x80a4ed];
     [sender setBackgroundColor:[littleBoyBlue colorWithAlphaComponent:0.2]];
-    NSMutableString *check = [NSMutableString new];
+    
+    self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
+    
+    NSMutableString * newLabel = [NSMutableString stringWithString:self.secureLabel.text];
+    if ([newLabel containsString:@"_"]) {
+        newLabel = [NSMutableString stringWithString:@""];
+    }
+    
     NSLog(@"%ld", sender.tag);
-    if (check.length < 4) {
+    if (self.secureLabel.text.length < 3) {
         switch (sender.tag) {
             case 1:
-                NSLog(@"%ld", sender.tag);
-                [check appendString:@"1"];
-                self.secureLabel.text = check;
+                [newLabel appendString:@"1"];
+                NSLog(@"%lu", sender.tag);
+                NSLog(@"%@", newLabel);
+                self.secureLabel.text = newLabel;
                 break;
             case 2:
-                [check appendString:@"2"];
-                self.secureLabel.text = check;
+                [newLabel appendString:@"2"];
+                NSLog(@"%lu", sender.tag);
+                self.secureLabel.text = newLabel;
                 break;
             case 3:
-                [check appendString:@"3"];
-                self.secureLabel.text = check;
+                [newLabel appendString:@"3"];
+                NSLog(@"%lu", sender.tag);
+                self.secureLabel.text = newLabel;
                 break;
             default:
+                NSLog(@"Error SecureLabel");
                 break;
         }
     }else{
-        check = nil;
-        self.secureLabel.text = @"-";
+        self.secureLabel.text = @"_";
     }
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
     UIColor *white = [UIColor whiteColor];
     [sender setBackgroundColor:white];
-    NSLog(@"Bad");
-}
+    UIColor *turquoiseGreen = [UIColor colorFromHex:0x91c7b1];
+    UIColor *vanetianRed = [UIColor colorFromHex:0xc20114];
 
+    if ([self.secureLabel.text isEqualToString:self.constSecureText]) {
+        NSLog(@"SUCSEC");
+        
+        self.secureView.layer.borderColor = turquoiseGreen.CGColor;
+        [self showAlert];
+    }else {
+        if (self.secureLabel.text.length == 3) {
+            self.secureLabel.text = @"_";
+            self.secureView.layer.borderColor = vanetianRed.CGColor;
+        }
+    }
+    
+    NSLog(@"Tap");
+}
+//MARK: - Alert
+-(void) showAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome"
+                message:@"You are successfuly autorized!"
+                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Refresh"
+                style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+            [self beginingStyles];
+            [self enableLogin];
+            self.checkLoginText = nil;
+            self.checkPassText = nil;
+            self.secureLabel.text = @"_";
+                }];
+
+        [alert addAction:firstAction];
+
+        [self presentViewController:alert animated:YES completion:nil];
+}
 @end
