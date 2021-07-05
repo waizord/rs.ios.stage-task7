@@ -18,6 +18,7 @@
     // Override point for customization after application launch.
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     AuthViewController *rootVC = [[AuthViewController alloc] initWithNibName:@"AuthViewController" bundle:nil];
+    rootVC.view.backgroundColor = UIColor.whiteColor;
     [window setRootViewController:rootVC];
     self.window = window;
     [self.window makeKeyAndVisible];
