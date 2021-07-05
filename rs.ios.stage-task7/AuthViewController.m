@@ -241,7 +241,7 @@ return YES;
     self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
     
     NSMutableString * newLabel = [NSMutableString stringWithString:self.secureLabel.text];
-    if ([newLabel containsString:@"-"]) {
+    if ([newLabel containsString:@"_"]) {
         newLabel = [NSMutableString stringWithString:@""];
     }
     
@@ -269,7 +269,7 @@ return YES;
                 break;
         }
     }else{
-        self.secureLabel.text = @"-";
+        self.secureLabel.text = @"_";
     }
 }
 -(void) buttonSecureUp: (UIButton *)sender  {
@@ -285,7 +285,7 @@ return YES;
         [self showAlert];
     }else {
         if (self.secureLabel.text.length == 3) {
-            self.secureLabel.text = @"-";
+            self.secureLabel.text = @"_";
             self.secureView.layer.borderColor = vanetianRed.CGColor;
         }
     }
@@ -303,6 +303,7 @@ return YES;
             [self enableLogin];
             self.checkLoginText = nil;
             self.checkPassText = nil;
+            self.secureLabel.text = @"_";
                 }];
 
         [alert addAction:firstAction];
