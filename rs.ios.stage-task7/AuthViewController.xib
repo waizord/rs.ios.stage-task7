@@ -104,7 +104,7 @@
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                     </state>
                 </button>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Login" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="HdT-pz-0HW" userLabel="login">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Login" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="HdT-pz-0HW" userLabel="login">
                     <rect key="frame" x="36" y="164" width="248" height="23"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
