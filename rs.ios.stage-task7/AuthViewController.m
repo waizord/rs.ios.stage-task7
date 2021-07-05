@@ -102,17 +102,20 @@ return YES;
     self.loginTextField.layer.borderWidth = 1.5;
     self.loginTextField.layer.cornerRadius = 5;
     self.loginTextField.borderStyle = UITextBorderStyleRoundedRect;
+    [self.loginTextField setAlpha:1];
     
     self.passTextField.layer.borderColor = blackCoral.CGColor;
     self.passTextField.layer.borderWidth = 1.5;
     self.passTextField.layer.cornerRadius = 5;
     self.passTextField.borderStyle = UITextBorderStyleRoundedRect;
+    [self.passTextField setAlpha:1];
     
     self.autorizeButton.layer.borderColor = littleBoyBlue.CGColor;
     self.autorizeButton.layer.borderWidth = 2;
     self.autorizeButton.layer.cornerRadius = 10;
     [self.autorizeButton setTitle:@"Autorize" forState: UIControlStateNormal];
     self.autorizeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
+    [self.autorizeButton setAlpha:1];
     //defaults style
     UIImage *person2 = [[UIImage alloc] imageWithImage:[UIImage imageNamed:@"person2"] convertToSize:CGSizeMake(17, 17)];
     [self.autorizeButton setImage:person2 forState:UIControlStateNormal];
@@ -126,10 +129,10 @@ return YES;
     //disabled
     
     //MARK: - Secure
-    self.secureView.layer.borderColor = turquoiseGreen.CGColor;
+    self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
     self.secureView.layer.borderWidth = 2;
     self.secureView.layer.cornerRadius = 10;
-    //[self.secureView setHidden:true];
+    [self.secureView setHidden:true];
     
     self.oneButton.layer.borderColor = littleBoyBlue.CGColor;
     self.oneButton.layer.borderWidth = 1.5;
@@ -169,7 +172,13 @@ return YES;
 -(void) changePassStyle: (UIColor *) color {
     self.passTextField.layer.borderColor = color.CGColor;
 }
-
+-(void) enableLogin {
+    [self.loginTextField setEnabled:true];
+    [self.autorizeButton setEnabled:true];
+    [self.passTextField setEnabled:true];
+    self.loginTextField.clearsContextBeforeDrawing = true;
+    self.passTextField.clearsContextBeforeDrawing = true;
+}
 -(void) disableLogin {
     [self.loginTextField setEnabled:false];
     [self.autorizeButton setEnabled:false];
@@ -191,8 +200,8 @@ return YES;
     [self changeLoginStyle:turquoiseGreen];
     [self changePassStyle:turquoiseGreen];
         
-        //[self disableLogin];
-        //[self enableSecure];
+        [self disableLogin];
+        [self enableSecure];
         
     }else {
         if ([self.checkLoginText isEqual:self.constLoginText]) {
@@ -284,14 +293,17 @@ return YES;
 -(void) showAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome"
                 message:@"You are successfuly autorized!"
-                preferredStyle:UIAlertControllerStyleAlert]; // 1
+                preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Refresh"
                 style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-                    NSLog(@"You pressed button one");
-                }]; // 2
+            [self beginingStyles];
+            [self enableLogin];
+            self.checkLoginText = nil;
+            self.checkPassText = nil;
+                }];
 
-        [alert addAction:firstAction]; // 4
+        [alert addAction:firstAction];
 
-        [self presentViewController:alert animated:YES completion:nil]; // 6
+        [self presentViewController:alert animated:YES completion:nil];
 }
 @end
