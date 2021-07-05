@@ -19,11 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *oneButton;
 @property (weak, nonatomic) IBOutlet UIButton *twoButton;
 @property (weak, nonatomic) IBOutlet UIButton *threeButton;
+
 @property (nonatomic) NSString *checkLoginText;
 @property (nonatomic) NSString *checkPassText;
-
-//@property (nonatomic) bool isLoginText;
-//@property (nonatomic) bool isPassText;
 
 @property (readonly, nonatomic) NSString *constLoginText;
 @property (readonly, nonatomic) NSString *constPassText;
@@ -41,12 +39,6 @@
 - (NSString *)constSecureText {
     return @"132";
 }
-//- (BOOL)isLoginText {
-//    return NO;
-//}
-//- (BOOL)isPassText {
-//    return NO;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +70,8 @@ return YES;
         if ( [self.constLoginText isEqualToString:text] ) {
             self.checkLoginText = text;
             NSLog(@"Sucsess");
+        }else {
+            self.checkLoginText = nil;
         }
     }
     
@@ -85,6 +79,8 @@ return YES;
         if ( [self.constPassText isEqualToString:text] ) {
             self.checkPassText = text;
             NSLog(@"Sucsess");
+        }else {
+            self.checkPassText = nil;
         }
     }
     
@@ -147,7 +143,6 @@ return YES;
     UIImage *person = [[UIImage alloc] imageWithImage:[UIImage imageNamed:@"person"] convertToSize:CGSizeMake(17, 17)];
     [self.autorizeButton setImage:person forState:UIControlStateHighlighted];
     [self.autorizeButton addTarget:self action:@selector(buttonHighlightAuth) forControlEvents:UIControlEventTouchDown];
-    //disabled
     
     //MARK: - Secure styles
     self.secureView.layer.borderColor = UIColor.whiteColor.CGColor;
@@ -197,8 +192,8 @@ return YES;
     [self.loginTextField setEnabled:true];
     [self.autorizeButton setEnabled:true];
     [self.passTextField setEnabled:true];
-    self.loginTextField.clearsContextBeforeDrawing = true;
-    self.passTextField.clearsContextBeforeDrawing = true;
+//    self.loginTextField.clearsContextBeforeDrawing = true;
+//    self.passTextField.clearsContextBeforeDrawing = true;
 }
 -(void) disableLogin {
     [self.loginTextField setEnabled:false];
